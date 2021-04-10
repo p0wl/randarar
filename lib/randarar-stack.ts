@@ -23,10 +23,20 @@ class RandararService extends cdk.Construct {
         nodeModules: ["sharp", "got"],
         forceDockerBundling: true,
       },
+      environment: {
+        FONTCONFIG_PATH: "/opt/etc/fonts",
+      },
+      layers: [
+        lambda.LayerVersion.fromLayerVersionArn(
+          this,
+          "aws-lambda-fonts",
+          "arn:aws:lambda:us-east-1:347599033421:layer:amazon_linux_fonts:1"
+        ),
+      ],
     });
     const api = new apigateway.LambdaRestApi(this, "randarar", {
       handler: renderer,
-      binaryMediaTypes: ['*/*'],
+      binaryMediaTypes: ["*/*"],
     });
 
     new cdk.CfnOutput(this, "API", {

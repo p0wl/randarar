@@ -9,7 +9,7 @@ const handler: APIGatewayProxyHandler = async (event) => {
   delete placeholders.s;
 
   assertPlaceholders(placeholders);
-  console.log("rendering", source);
+  console.log("rendering", event.queryStringParameters);
 
   console.time("download");
   const imageBuffer = await downloadImageAsBuffer(source);
@@ -17,7 +17,6 @@ const handler: APIGatewayProxyHandler = async (event) => {
 
   console.time("replace");
   const replaced = replacePlaceholders(imageBuffer, placeholders);
-  console.log("replaced", imageBuffer, replaced);
   console.timeEnd("replace");
 
   console.time("sharp");
