@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import * as cdk from '@aws-cdk/core';
-import { RandararCdkStack } from '../lib/randarar-cdk-stack';
+import * as cdk from "@aws-cdk/core";
+import { RandararStack } from "../lib/randarar-stack";
 
 const app = new cdk.App();
-new RandararCdkStack(app, 'RandararCdkStack');
+new RandararStack(app, "RandararStack", { env: { region: "us-east-1" } });
