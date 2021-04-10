@@ -5,8 +5,15 @@ import { APIGatewayProxyHandler } from "aws-lambda";
 
 const handler: APIGatewayProxyHandler = async (event) => {
   const source = event.queryStringParameters!.s!;
+  const dpi = event.queryStringParameters!.dpi;
   const placeholders = event.queryStringParameters!;
   delete placeholders.s;
+
+  let density = 144;
+  if (dpi && !isNaN(density)) {
+    density = parseInt(dpi);
+    delete placeholders.dpi;
+  }
 
   assertPlaceholders(placeholders);
   console.log("rendering", event.queryStringParameters);
@@ -20,7 +27,7 @@ const handler: APIGatewayProxyHandler = async (event) => {
   console.timeEnd("replace");
 
   console.time("sharp");
-  const result = await sharp(Buffer.from(replaced), { density: 300 })
+  const result = await sharp(Buffer.from(replaced), { density })
     .png()
     .toBuffer();
   console.timeEnd("sharp");
