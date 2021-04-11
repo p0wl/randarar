@@ -6,7 +6,23 @@ import Mustache from "mustache";
 import { APIGatewayProxyHandler } from "aws-lambda";
 
 const handler: APIGatewayProxyHandler = async (event) => {
+  console.log("requested-path", event.path);
   console.log(JSON.stringify(event));
+
+  if (event.path !== "/render.png") {
+    return {
+      body: "Nothing here",
+      statusCode: 400,
+    };
+  }
+
+  if (event.httpMethod !== "GET") {
+    return {
+      body: "Nothing here",
+      statusCode: 400,
+    };
+  }
+
   const source = event.queryStringParameters!.s!;
   const dpi = event.queryStringParameters!.dpi;
   const sourcePlaceholders = event.queryStringParameters!;
@@ -52,6 +68,7 @@ const handler: APIGatewayProxyHandler = async (event) => {
     body: result.toString("base64"),
     statusCode: 200,
     headers: {
+      "Cache-Control": "public, max-age=86400",
       "Content-Type": "image/png; charset=utf-8",
     },
     isBase64Encoded: true,
