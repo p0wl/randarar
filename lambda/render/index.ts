@@ -93,9 +93,14 @@ const downloadPlaceholderImages = async (
     imagePlaceholderKeys.map(async (key) => {
       const url = placeholders[key];
       console.log("downloading placeholder from", url);
-      const file = await got(url!, { responseType: "buffer" });
-      console.log("downloading placeholder finished", url);
-      result[key] = `data:image/png;base64,` + file.body.toString("base64");
+      try {
+        const file = await got(url!, { responseType: "buffer" });
+        console.log("downloading placeholder finished", url);
+        result[key] = `data:image/png;base64,` + file.body.toString("base64");
+      } catch (e) {
+        console.log("downloading placeholder failed", url, e);
+        result[key] = "";
+      }
     })
   );
 
