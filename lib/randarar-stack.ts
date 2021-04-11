@@ -60,6 +60,7 @@ class RandararService extends cdk.Construct {
       domainName: {
         domainName: this.domain,
         certificate: certificate,
+        securityPolicy: apigateway.SecurityPolicy.TLS_1_2,
       },
     });
 

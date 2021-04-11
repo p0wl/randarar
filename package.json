@@ -5,6 +5,7 @@
     "randarar-cdk": "bin/randarar-cdk.js"
   },
   "scripts": {
+    "deploy": "npm run cdk deploy --all",
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
