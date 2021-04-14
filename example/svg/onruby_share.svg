@@ -1,0 +1,36 @@
+<svg width="1200" height="627" viewBox="0 0 1200 627" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g clip-path="url(#clip0)">
+<rect width="1200" height="627" fill="white"/>
+<g filter="url(#filter0_d)">
+<rect width="1200" height="627" fill="url(#pattern0)"/>
+<rect x="1" y="1" width="1198" height="625" stroke="#D7D7D7" stroke-width="2"/>
+</g>
+<line x1="1200" y1="512.298" y2="512.298" stroke="#D7D7D7"/>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="64" font-weight="500" letter-spacing="0em"><tspan x="80" y="125.375">{{ title }}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="64" font-weight="500" letter-spacing="0em"><tspan x="80" y="219.375">{{ month }}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="32" font-weight="300" letter-spacing="0em"><tspan x="80" y="466.938">{{ host }}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="32" font-weight="300" letter-spacing="0em"><tspan x="80" y="523.938">{{ location }} </tspan></text>
+<rect x="817" y="180" width="280" height="353" fill="url(#pattern1)"/>
+</g>
+<defs>
+<filter id="filter0_d" x="-4" y="0" width="1208" height="635" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+</filter>
+<pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image0" transform="translate(0 -0.456938) scale(0.00152905 0.00292642)"/>
+</pattern>
+<pattern id="pattern1" patternContentUnits="objectBoundingBox" width="1" height="1">
+<use xlink:href="#image1" transform="translate(-0.00179746) scale(0.00414709 0.00328947)"/>
+</pattern>
+<clipPath id="clip0">
+<rect width="1200" height="627" fill="white"/>
+</clipPath>
+<image id="image0" width="654" height="654" xlink:href="{{ logo }}"/>
+</defs>
+</svg>
