@@ -1,6 +1,8 @@
 # Randarar randarars SVGs with placeholders to PNG
 Create social media sharable images with dynamic content by using a single url
 
+![Explanation](/example/svg/explanation.png)
+
 ## Why
 If you share websites, a lot of tools like slack, linkedin and twitter show a preview image of the webpage. Randarar allows you to add dynamic content to your images with a very simple solution.
 
@@ -9,15 +11,24 @@ You tell Randarar which image you want to render and the placeholders (your dyna
 
 The url looks like this:
 
-https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&title=Hello%20There!&tool=Wonder&participants=13
+https://p.salmo.link/render.png?s=https://raw.githubusercontent.com/p0wl/randarar/main/example/svg/onruby_share.svg&title=Remote%20Ruby%20Usergroup%20Hamburg&month=December%202020&participants=6
 
-![Image with 14 participants](https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&title=Hello%20There!&tool=Wonder&participants=13)
+![Image with 14 participants](https://p.salmo.link/render.png?s=https://raw.githubusercontent.com/p0wl/randarar/main/example/svg/onruby_share.svg&title=Remote%20Ruby%20Usergroup%20Hamburg&month=December%202020&participants=6)
 
 You can change the parameters (e.g. increase the number of participants) and get an updated image:
 
-https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&title=Hello%20There!&tool=Wonder&participants=14
+https://p.salmo.link/render.png?s=https://raw.githubusercontent.com/p0wl/randarar/main/example/svg/onruby_share.svg&title=Remote%20Ruby%20Usergroup%20Hamburg&month=December%202020&participants=7
 
-![Image with 14 participants](https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&title=Hello%20There!&tool=Wonder&participants=14)
+![Image with 14 participants](https://p.salmo.link/render.png?s=https://raw.githubusercontent.com/p0wl/randarar/main/example/svg/onruby_share.svg&title=Remote%20Ruby%20Usergroup%20Hamburg&month=December%202020&participants=7)
+
+
+### Full Example
+Url: 
+https://p.salmo.link/render.png?s=https://raw.githubusercontent.com/p0wl/randarar/main/example/svg/onruby_share.svg&title=Remote%20Ruby%20Usergroup%20Hamburg&month=December%202020&participants=6%20Participants&host=Host:%20Irina%20Lindt,%2009.12.2020%20um%2019:00&location=Online%20via%20Zoom&logo=https://hamburg.onruby.de/assets/labels/hamburg-b38fc9aa8aea505fcfe49a9032684ec70dbaab11071a4e9aeea2bf55695cdd3f.png
+
+Generated Image: 
+![Result](https://p.salmo.link/render.png?s=https://raw.githubusercontent.com/p0wl/randarar/main/example/svg/onruby_share.svg&title=Remote%20Ruby%20Usergroup%20Hamburg&month=December%202020&participants=6%20Participants&host=Host:%20Irina%20Lindt,%2009.12.2020%20um%2019:00&location=Online%20via%20Zoom&logo=https://hamburg.onruby.de/assets/labels/hamburg-b38fc9aa8aea505fcfe49a9032684ec70dbaab11071a4e9aeea2bf55695cdd3f.png)
+
 
 ## What you need
 
