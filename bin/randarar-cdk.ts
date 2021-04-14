@@ -6,6 +6,6 @@ const app = new cdk.App();
 new RandararStack(app, "RandararStack", {
   env: {
     account: process.env.CDK_DEFAULT_ACCOUNT,
-    region: process.env.CDK_DEFAULT_REGION,
+    region: "us-east-1",
   },
 });

@@ -6,8 +6,18 @@ import Mustache from "mustache";
 import { APIGatewayProxyHandler } from "aws-lambda";
 
 const handler: APIGatewayProxyHandler = async (event) => {
-  console.log("requested-path", event.path);
   console.log(JSON.stringify(event));
+  console.log("requested-path", event.path);
+
+  if (event.path === "/") {
+    return {
+      body: "Moved",
+      statusCode: 302,
+      headers: {
+        Location: "https://github.com/p0wl/randarar",
+      },
+    };
+  }
 
   if (event.path !== "/render.png") {
     return {
@@ -44,7 +54,6 @@ const handler: APIGatewayProxyHandler = async (event) => {
       statusCode: 400,
     };
   }
-  console.log("rendering", JSON.stringify(event));
 
   console.time("download");
   const imageBuffer = await downloadImageAsText(source);
