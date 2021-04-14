@@ -1,15 +1,79 @@
-# Welcome to your CDK TypeScript project!
+# Randarar randarars SVGs with placeholders to PNG
+Create social media sharable images with dynamic content by using a single url
 
-You should explore the contents of this project. It demonstrates a CDK app with an instance of a stack (`RandararCdkStack`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+## Why
+If you share websites, a lot of tools like slack, linkedin and twitter show a preview image of the webpage. Randarar allows you to add dynamic content to your images with a very simple solution.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## How
+You tell Randarar which image you want to render and the placeholders (your dynamic content) and you get back a ready made image.
 
-## Useful commands
+The url looks like this:
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk synth`       emits the synthesized CloudFormation template
+https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&title=Hello%20There!&tool=Wonder&participants=13
+
+![Image with 14 participants](https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&title=Hello%20There!&tool=Wonder&participants=13)
+
+You can change the parameters (e.g. increase the number of participants) and get an updated image:
+
+https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&title=Hello%20There!&tool=Wonder&participants=14
+
+![Image with 14 participants](https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&title=Hello%20There!&tool=Wonder&participants=14)
+
+## What you need
+
+You have to prepare an svg image with placeholders. Placeholders are replaced using [mustache.js](https://github.com/janl/mustache.js/), so you change the dynamic parts of your svg from
+
+```svg
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="DM Sans" font-size="20" font-weight="bold" letter-spacing="-0.02em"><tspan x="1146.97" y="580.884">99</tspan></text>
+```
+
+to 
+
+```svg
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="DM Sans" font-size="20" font-weight="bold" letter-spacing="-0.02em"><tspan x="1146.97" y="580.884">{{participants}}</tspan></text>
+```
+
+After that, Randarar can render a dynamic value for the `{{ participants }}` field
+
+## Integration
+
+The Randarar urls are supposed to be integrated via an `og:image` meta tag.
+The svg image has to be reachable using https.
+
+You can construct the url to render like this:
+
+```
+https://p.salmo.link/render.png?s=<https://your-svg-url>&<your-placeholder>=<your-value>
+
+# Example:
+https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&title=Hello%20There!
+```
+
+Randarar will return a `"Cache-Control": "public, max-age=86400",` header, which tells browsers to cache the image. As of now there is no server-side caching enabled.
+
+## Replacement Values
+Randarar can replace text and also images! For a dynamic image, you replace the inlined image in an svg with a placeholder:
+
+
+```
+# Original svg:
+<image id="image0" width="104" height="104" xlink:href="data:image/png;base64,iVBORw0KG..."/>
+
+# Adjusted, ready for Randarar:
+<image id="image0" width="104" height="104" xlink:href="{{{ logo }}}"/>
+
+```
+
+and then supply the logo image url:
+
+```
+https://p.salmo.link/render.png?s=https://svgshare.com/i/W0C.svg&logo=https://hamburg.onruby.de/assets/labels/hamburg-b38fc9aa8aea505fcfe49a9032684ec70dbaab11071a4e9aeea2bf55695cdd3f.png
+```
+
+Works with pngs.
+
+
+### Development
+Randarar uses [sharp](https://github.com/lovell/sharp) to render svg as png images really fast.
+
+Randarar is developed and deployed using [aws-cdk](https://github.com/aws/aws-cdk).
