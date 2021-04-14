@@ -2,8 +2,8 @@
 <rect width="1200" height="627" fill="white"/>
 <rect width="1200" height="627" fill="url(#pattern0)"/>
 <line x1="1200" y1="512.298" y2="512.298" stroke="#D7D7D7"/>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="64" font-weight="500" letter-spacing="0em"><tspan x="80" y="125.375">{{ title }}</tspan></text>
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="64" font-weight="500" letter-spacing="0em"><tspan x="80" y="219.375">{{ month }}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="60" font-weight="500" letter-spacing="0em"><tspan x="80" y="121.508">{{ title }}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="60" font-weight="500" letter-spacing="0em"><tspan x="80" y="215.508">{{ month }}</tspan></text>
 <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="32" font-weight="300" letter-spacing="0em"><tspan x="80" y="410.938">{{ host }}</tspan></text>
 <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="32" font-weight="300" letter-spacing="0em"><tspan x="80" y="467.938">{{ location }} </tspan></text>
 <text fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="32" font-weight="300" letter-spacing="0em"><tspan x="80" y="524.938">{{ participants }} </tspan></text>
