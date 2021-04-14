@@ -35,13 +35,17 @@ Generated Image:
 You have to prepare an svg image with placeholders. Placeholders are replaced using [mustache.js](https://github.com/janl/mustache.js/), so you change the dynamic parts of your svg from
 
 ```svg
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="DM Sans" font-size="20" font-weight="bold" letter-spacing="-0.02em"><tspan x="1146.97" y="580.884">99</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="DM Sans" font-size="20" font-weight="bold" letter-spacing="-0.02em">
+  <tspan x="1146.97" y="580.884">99</tspan>
+</text>
 ```
 
 to 
 
 ```svg
-<text fill="black" xml:space="preserve" style="white-space: pre" font-family="DM Sans" font-size="20" font-weight="bold" letter-spacing="-0.02em"><tspan x="1146.97" y="580.884">{{participants}}</tspan></text>
+<text fill="black" xml:space="preserve" style="white-space: pre" font-family="DM Sans" font-size="20" font-weight="bold" letter-spacing="-0.02em">
+  <tspan x="1146.97" y="580.884">{{participants}}</tspan>
+</text>
 ```
 
 After that, Randarar can render a dynamic value for the `{{ participants }}` field
