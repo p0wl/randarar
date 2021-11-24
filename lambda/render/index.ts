@@ -104,6 +104,11 @@ const downloadPlaceholderImages = async (
       console.log("downloading placeholder from", url);
       try {
         const file = await got(url!, { responseType: "buffer" });
+        if (file.headers["content-type"] !== "image/png") {
+          throw new Error(
+            `unsupported placeholder content-type: ${file.headers["content-type"]}`
+          );
+        }
         console.log("downloading placeholder finished", url);
         result[key] = `data:image/png;base64,` + file.body.toString("base64");
       } catch (e) {
@@ -116,7 +121,7 @@ const downloadPlaceholderImages = async (
   return result;
 };
 
-const allowedPlaceholderImageTypes = [".png", ".ico", ".jpg", ".jpeg"];
+const allowedPlaceholderImageTypes = [".png", ".ico", ".jpg", ".jpeg", ""];
 const assertPlaceholders = (placeholders: Record<string, unknown>) => {
   Object.keys(placeholders).forEach((k) => {
     const value = placeholders[k];
