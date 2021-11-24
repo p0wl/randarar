@@ -28,6 +28,9 @@
     "@aws-cdk/aws-lambda": "1.133.0",
     "@aws-cdk/aws-lambda-nodejs": "1.133.0",
     "@aws-cdk/aws-route53-targets": "1.133.0",
-    "@aws-cdk/core": "1.133.0"
+    "@aws-cdk/core": "1.133.0",
+    "mustache": "^4.2.0",
+    "got": "^11.8.2",
+    "sharp": "^0.28.1"
   }
 }
