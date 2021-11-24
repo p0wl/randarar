@@ -26,13 +26,16 @@ class RandararService extends cdk.Construct {
       memorySize: 1024,
       timeout: cdk.Duration.seconds(30),
       bundling: {
+        environment: {
+          SHARP_IGNORE_GLOBAL_LIBVIPS: "1",
+        },
         nodeModules: ["sharp", "got"],
-        forceDockerBundling: false,
+        forceDockerBundling: true,
         commandHooks: {
           afterBundling: (inputDir: string, outputDir: string): string[] => [
             `cp -r ${inputDir}/lambda/render/fonts ${outputDir}/fonts`,
           ],
-          beforeBundling: (inputDir: string, outputDir: string): string[] => [],
+          beforeBundling: () => [],
           beforeInstall: () => [],
         },
       },
