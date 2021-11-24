@@ -27,10 +27,17 @@ class RandararService extends cdk.Construct {
       timeout: cdk.Duration.seconds(30),
       bundling: {
         nodeModules: ["sharp", "got"],
-        forceDockerBundling: true,
+        forceDockerBundling: false,
+        commandHooks: {
+          afterBundling: (inputDir: string, outputDir: string): string[] => [
+            `cp -r ${inputDir}/lambda/render/fonts ${outputDir}/fonts`,
+          ],
+          beforeBundling: (inputDir: string, outputDir: string): string[] => [],
+          beforeInstall: () => [],
+        },
       },
       environment: {
-        FONTCONFIG_PATH: "/opt/etc/fonts",
+        FONTCONFIG_FILE: "/var/task/fonts/fonts.conf",
       },
       layers: [
         lambda.LayerVersion.fromLayerVersionArn(
