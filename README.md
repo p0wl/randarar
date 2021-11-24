@@ -75,7 +75,7 @@ Randarar can replace text and also images! For a dynamic image, you replace the 
 <image id="image0" width="104" height="104" xlink:href="data:image/png;base64,iVBORw0KG..."/>
 
 # Adjusted, ready for Randarar:
-<image id="image0" width="104" height="104" xlink:href="{{{ logo }}}"/>
+<image id="image0" width="104" height="104" xlink:href="{{ logo }}"/>
 
 ```
 
