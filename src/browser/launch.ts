@@ -13,6 +13,8 @@ export async function launchBrowser(headless = true): Promise<Browser> {
   } else {
     // Local: use full playwright installation
     const { chromium } = require('playwright');
-    return chromium.launch({ headless });
+    // Support pre-installed browsers (e.g. CI / sandboxed envs)
+    const executablePath = process.env.CHROMIUM_PATH;
+    return chromium.launch({ headless, ...(executablePath ? { executablePath } : {}) });
   }
 }
