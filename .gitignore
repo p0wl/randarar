@@ -7,3 +7,6 @@ node_modules
 .cdk.staging
 cdk.out
 lambda/render/fonts/*.otf
+
+# Local dev credentials (never commit)
+credentials.local.json

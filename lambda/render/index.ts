@@ -3,9 +3,9 @@ import { extname } from "path";
 import sharp from "sharp";
 import got from "got";
 import Mustache from "mustache";
-import { APIGatewayProxyHandler } from "aws-lambda";
+import { APIGatewayProxyHandler, APIGatewayProxyResult } from "aws-lambda";
 
-const handler: APIGatewayProxyHandler = async (event) => {
+const handler: APIGatewayProxyHandler = async (event): Promise<APIGatewayProxyResult> => {
   console.log(JSON.stringify(event));
   console.log("requested-path", event.path);
 
